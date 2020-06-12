@@ -4414,15 +4414,29 @@ input[type="button"].btn-block {
 }
 
 .card-img {
-  width: 100%;
+  max-width: 100px ;
   border-radius: calc(0.35rem - 1px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  max-height: 300px;
 }
 
 .card-img-top {
-  width: 100%;
+  position: relative;
+  height: 22.5rem;
+  object-fit: contain;
   border-top-left-radius: calc(0.35rem - 1px);
-  border-top-right-radius: calc(0.35rem - 1px);
+  border-top-right-radius: calc(0.35rem - 1px); 
 }
+
+
 
 .card-img-bottom {
   width: 100%;
