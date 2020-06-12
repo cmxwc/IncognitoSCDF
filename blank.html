@@ -332,7 +332,42 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+          <h1 class="h3 mb-4 text-gray-800">/First Responder Page/</h1>
+          <div>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Take photo of situation?</h6>
+              </div>
+              <div class="card-body">
+                Please take a photo of the current emergency situation.
+                <input type="file" accept="image/*" id="file-input" capture>
+                <script>
+                  const fileInput = document.getElementById('file-input');
+
+                  fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+                </script>
+              </div>
+            </div>
+            <a href="#" class="btn btn-success btn-circle btn-lg">
+              <i class="fas fa-check"></i>
+            </a>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">BOX1</h6>
+              </div>
+              <div class="card-body">
+                Please do not worry...
+              </div>
+            </div>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">BOX2</h6>
+              </div>
+              <div class="card-body">
+                idk what this is for!
+              </div>
+            </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->
