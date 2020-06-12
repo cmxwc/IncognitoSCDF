@@ -10996,11 +10996,3 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
-
-iframe{
-  left:0;
-  top:0;
-  height:1000;
-  width:500;
-  position:absolute;
-}
