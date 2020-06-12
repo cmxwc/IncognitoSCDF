@@ -1368,12 +1368,31 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #858796;
+  color: #000000;
+}
+.red {
+  background-color:  #fc1616bb !important;
+}
+.orange {
+  background-color:  #fc7216 !important;
+}
+.green {
+  background-color:  #18da18e5 !important;
+}
+
+.table thead tr th {
+  font-size: 12px;
+  padding: 0.5rem;
+}
+
+.table tbody tr td {
+  font-size: 12px;
+  padding: 0.5rem;
 }
 
 .table th,
 .table td {
-  padding: 0.75rem;
+  padding: 0.5rem;
   vertical-align: top;
   border-top: 1px solid #e3e6f0;
 }
@@ -1381,6 +1400,7 @@ pre code {
 .table thead th {
   vertical-align: bottom;
   border-bottom: 2px solid #e3e6f0;
+  font-size: 8px;
 }
 
 .table tbody + tbody {
@@ -1418,7 +1438,7 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-  color: #858796;
+  color: #ececec;
   background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -1492,6 +1512,7 @@ pre code {
 .table-info > th,
 .table-info > td {
   background-color: #c7ebf1;
+  font-size: 8px;
 }
 
 .table-info th,
@@ -1499,6 +1520,7 @@ pre code {
 .table-info thead th,
 .table-info tbody + tbody {
   border-color: #96dbe4;
+  font-size: 8px;
 }
 
 .table-hover .table-info:hover {
@@ -1653,7 +1675,7 @@ pre code {
   .table-responsive-sm {
     display: block;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive-sm > .table-bordered {
@@ -1665,7 +1687,19 @@ pre code {
   .table-responsive-md {
     display: block;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-md > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive-md > .table-bordered {
@@ -1700,7 +1734,7 @@ pre code {
 .table-responsive {
   display: block;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -4592,7 +4626,8 @@ input[type="button"].btn-block {
 .page-link {
   position: relative;
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.25rem 1rem;
+  font-size: 12px;
   margin-left: -1px;
   line-height: 1.25;
   color: #4e73df;
