@@ -10524,6 +10524,7 @@ a:focus {
   height: 3.5rem;
   width: 3.5rem;
   font-size: 1.35rem;
+  margin-bottom: 25px;
 }
 
 .btn-icon-split {
