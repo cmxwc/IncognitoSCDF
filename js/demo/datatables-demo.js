@@ -2,6 +2,7 @@
 $(document).ready(function() {
   $('#dataTable').DataTable(
     {
+      "ajax":'/table.json',
       searching: false,
       ordering: false,
       lengthChange: false,
@@ -17,7 +18,10 @@ $(document).ready(function() {
         if( data[3] ==  "Low"){
         $(row).addClass('green');
         }
+        if(data[3] == 'Pending'){
+          $(row).addClass('yellow');
         }
+      }
       // lengthMenu: [[5,10,-1], [5, 10, "All"]]
     }
   );
