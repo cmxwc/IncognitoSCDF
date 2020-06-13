@@ -95,61 +95,62 @@
                 <input type="file" accept="image/*" id="file-input">
                 <button class="btn btn-secondary" type="submit" id='submitphoto' style='visibility:hidden'>Submit</button>
                 </form> -->
-                <form method="POST" enctype="multipart/form-data" action="/upload">
+                <form id = 'form_id' method="POST" enctype="multipart/form-data" action="/upload">
                   <input type="file" name="file" multiple="">
-                  <input class="btn btn-secondary" type="submit" value="Upload">
-                </form>
-                
-                <script>
-                  // var formFiles = document.getElementById('form-files');
-
-                  // var fileInput = document.getElementById('file-input');
-                  // var filebutton = document.getElementById('submitphoto');
-                  // async function postData(url = '', data = {}) {
-                  //   // Default options are marked with *
-                  //   const response = await fetch(url, {
-                  //     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                  //     mode: 'cors', // no-cors, *cors, same-origin
-                  //     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                  //     credentials: 'same-origin', // include, *same-origin, omit
-                  //     headers: {
-                  //       'Content-Type': 'application/json'
-                  //       // 'Content-Type': 'application/x-www-form-urlencoded',
-                  //     },
-                  //     redirect: 'follow', // manual, *follow, error
-                  //     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                  //     body: JSON.stringify(data) // body data type must match "Content-Type" header
-                  //   });
-                  //   return response.json(); // parses JSON response into native JavaScript objects
-                  // }
-                  // function handleFiles() {
-                  //   console.log(this.files)
-                  //   postData('/send_image', {
-
-                  //     "image": this.files,
-                  //   })
-                  //     .then(data => { }) /* now you can work with the file list */
-                  // }
-                  // formFiles.addEventListener('submit', function (e) {
-                  //   e.preventDefault();
-                  //   var formData = new FormData();
-                  //   var request = new XMLHttpRequest();
-                  //   fileList = fileInput.files
-                  //   console.log(fileList)
-                  //   for (var i = 0; i < fileList.length; i++) {
-                  //     formData.append('files[]', fileList[i]);
-                  //   }
-                  //   request.open('POST', '/upload');
-                  //   request.send(formData);
-                  // });
-
-                  // fileInput.addEventListener('change', function (e) {
-                  //   e.preventDefault();
-                  //   filebutton.style.visibility='visible';
-                  // },false);
-
                   
+                  <input class="btn btn-secondary" type="submit" value="Upload">
+                  <input type='loc' id='loc' style='visibility:hidden'>
+                </form>
+                <script>
+                  var latitude = 0;
+                  var longitude = 0;
+                  var options = {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                  };
+              
+                  function success(pos) {
+                    var crd = pos.coords;
+              
+                    console.log('Your current position is:');
+                    console.log(`Latitude : ${crd.latitude}`);
+                    console.log(`Longitude: ${crd.longitude}`);
+                    console.log(`Accuracy Range: ${crd.accuracy} meters.`);
+                    latitude = crd.latitude;
+                    longitude = crd.longitude;
+                    change_url(pn.value)
+                  }
+              
+                  function error(err) {
+                    console.warn(`ERROR(${err.code}): ${err.message}`);
+                  }
+              
+                  navigator.geolocation.getCurrentPosition(success, error, options);
+              
                 </script>
+              
+              </div>
+            </div>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Demo - SMS System</h6>
+              </div>
+              <div class="card-body">
+                Twilio Programmable SMS require $75/mth for Singaporean numbers. For now, we will do a proof of concept for unique ID using phone numbers
+                <form >
+                  <input id='phone-number' type="text" name="phone-number" placeholder='' onchange="change_url(this.value)">
+                </form>
+                <script>
+                  
+                  function change_url(v) {
+                    document.getElementById("form_id").action = "/upload?user=" + v +"&latitude=" + latitude.toString()+"&longitude=" + longitude.toString()
+                  }
+                  var pn = document.getElementById("phone-number")
+                  pn.value = "9" + (Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000).toString()
+                  change_url(pn.value)
+                </script>
+
               </div>
             </div>
           </div>

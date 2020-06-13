@@ -413,18 +413,18 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Caller Log</h6>
                   <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    <!-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                    </a> -->
+                    <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                       aria-labelledby="dropdownMenuLink">
                       <div class="dropdown-header">Dropdown Header:</div>
                       <a class="dropdown-item" href="#">Action</a>
                       <a class="dropdown-item" href="#">Another action</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                 <!-- Card Body -->
@@ -433,34 +433,39 @@
                     <!-- <div class="chart-area"> -->
                     <!-- <canvas id="myAreaChart"></canvas> -->
                     <div class="table-responsive">
+                      <script>
+                        // $(document).ready(function () {
+                        //   fillTable();
+                        // })
+                        // //fetch api (AJAX) to fill table
+                        // fillTable = () => {
+                        //   fetch('/table.json')
+                        //     .then(response => response.json())
+                        //     .then(data => {
+                        //       let html = '';
+                        //       for (i = 0; i < data.length; i++) {
+                        //         html += '<tr>' +
+                        //           '<td>' + data[i].Name + '</td>' +
+                        //           '<td>' + data[i].Location + '</td>' +
+                        //           '<td>' + data[i].Type + '</td>' +
+                        //           '<td>' + data[i].Severity + '</td>' +
+                        //           '<td>' + data[i].Status + '</td>' +
+                        //           '<td>' + data[i].Time + '</td>' +
+                        //           '</tr">'
 
+                        //       }
+                        //       $('#tblBody').html(html);
+                        //     })
+                        //     .catch(err => console.log("ERROR!: ", err))
+                        // }
+                        // $(document).ready(function () {
+                        //   $('#dataTable').DataTable({
+                        //     "ajax": '/table.json'
+                        //   });
+                        // });
+                      </script>
                       <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                        <script>
-                          $(document).ready(function () {
-                            fillTable();
-                          })
-                          //fetch api (AJAX) to fill table
-                          fillTable = () => {
-                            fetch('http://127.0.0.1:8000/table.json')
-                              .then(response => response.json())
-                              .then(data => {
-                                let html = '';
-                                for (i = 0; i < data.length; i++) {
-                                  html += '<tr>' +
-                                    '<td>' + data[i].Name + '</td>' +
-                                    '<td>' + data[i].Location + '</td>' +
-                                    '<td>' + data[i].Type + '</td>' +
-                                    '<td>' + data[i].Severity + '</td>' +
-                                    '<td>' + data[i].Status + '</td>' +
-                                    '<td>' + data[i].Time + '</td>' +
-                                    '</tr">'
-                                    
-                                }
-                                $('#tblBody').html(html);
-                              })
-                              .catch(err => console.log("ERROR!: ", err))
-                          }
-                        </script>
+
 
                         <thead>
                           <tr>
@@ -473,7 +478,7 @@
                           </tr>
                         </thead>
                         <tbody id='tblBody'>
-                          
+
                         </tbody>
                       </table>
                     </div>
@@ -499,29 +504,28 @@
                       <a class="dropdown-item" href="#">Voice Call</a>
                       <a class="dropdown-item" href="#">Video Call</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">SMS Responder</a>
                     </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card" style=" height: 340px;">
                   <div class="text-center">
-                    <img class="img-reponsiveness" style="max-height: 280px"
-                      src="https://iphone-wallpaper.pics/wallpaper/i/-/i-phone-8-wallpaper-cute-siba-dog-animal-spring-illustration-art-iphone-6-wallpaper-of-i-phone-8-wallpaper_fa8953cc15cdd73e86eea5b006b7ce2f_raw.jpg">
+                    <img class="img-reponsiveness" style="max-height: 280px" src="/temp.png">
                   </div>
                   <!-- <div class="chart-pie pt-4 pb-2">
                     <canvas id="myPieChart"></canvas>
                   </div> -->
                   <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Fire
+                    <span class="mr-2" id="image-text-type" style='color:red;font-weight:bold'>
+                      
                     </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Ambulance
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Both
-                    </span>
+                    <script>
+                      var imagetexttype = document.getElementById("image-text-type");
+                      fetch('/image_type')
+                        .then(response => response.text())
+                        .then(commits => imagetexttype.innerHTML = '<i class="fas fa-circle"  ></i> '+commits);
+                    </script>
                   </div>
                 </div>
               </div>
@@ -604,7 +608,7 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  
+
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
@@ -614,11 +618,11 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <!-- <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script> -->
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>

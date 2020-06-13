@@ -1371,15 +1371,17 @@ pre code {
   color: #000000;
 }
 .red {
-  background-color:  #fc1616cc !important;
+  background-color:  #da181882 !important;
 }
 .orange {
-  background-color:  #fc7216 !important;
+  background-color:  #fc721675 !important;
 }
 .green {
-  background-color:  #18da18e5 !important;
+  background-color:  #18da1882 !important;
 }
-
+.yellow {
+  background-color:  #c9da1882 !important;
+}
 .table thead tr th {
   font-size: 12px;
   padding: 0.5rem;
