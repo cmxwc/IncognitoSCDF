@@ -98,11 +98,197 @@
             </div>
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">What Can You Do Now?</h6>
+                <h6 class="m-0 font-weight-bold text-primary">What Can You Do Now?
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" >
+                    Language
+                  </button>
+                  <div class="dropdown-menu">
+                    <button class="dropdown-item" type="button" onclick="change_language('Simplified Chinese')">Simplified Chinese</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Traditional Chinese')">Traditional Chinese</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Malay')">Malay</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Malayalam')">Malayalam</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Tamil')">Tamil</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Hindi')">Hindi</button>
+                  </div>
+                </h6>
               </div>
-              <div class="card-body">
-                idk what this is for!
+              <div class="card-body" id="guide">
+                <h6 class="m-0 font-weight-bold text-primary">
+                  <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/insurance-agent-resolving-car-accident_53876-43055.jpg" alt="">
+                  CAR ACCIDENT:
+                </h6>
+                <p>1)    Turn off car ignitions if possible. </p>
+                <p>2)    Alert others by putting on vehicle hazard lights and use a warning triangle if there is one available.</p>
+                <p>3)    Keep the casualties warm and calm and help them to contact next of kin</p>
+                <h6 class="m-0 font-weight-bold text-primary">
+                  <img style="width:50%; height:50%" src="https://image.flaticon.com/icons/png/512/90/90594.png" alt="">
+                  CARDIAC ARREST:
+                </h6>
+                <p>1)    Get an AED if possible</p>
+                <p>2)    Repeat continuous cycles of 30 chest compressions and 2 ventilations</p>
+                <p>3)    Use AED if available and follow its instructions</p>
+                <h6 class="m-0 font-weight-bold text-primary">
+                  <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/firefighters-extinguishing-flame-through-window_74855-4791.jpg" alt="">
+                  FIRE:
+                </h6>
+                <p>1)    Alert others to the fire by shouting</p>
+                <p>2)    Evacuate the area via exit stairs immediately</p>
+                <p>3)    Fight the fire only if you are able to and without endangering yourself and others. Use a fire extinguisher or hose reel.</p>
               </div>
+
+              <script>
+                function change_language(language) {
+                  var xlang = document.getElementById("guide")
+                  var xang = document.getElementById("guide")
+                  if (language=="Simplified Chinese") {
+                    xlang.innerHTML = `
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/insurance-agent-resolving-car-accident_53876-43055.jpg" alt="">
+                      车祸:
+                    </h6>
+                    <p>1)    如果有可能，请关闭汽车点火。 </p>
+                    <p>2)    请注意，如果有车辆危险指示灯，请使用警告三角形。</p>
+                    <p>3)    保持人员伤亡的温暖和冷静，帮助他们联系亲人。</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.flaticon.com/icons/png/512/90/90594.png" alt="">
+                      心脏骤停:
+                    </h6>
+                    <p>1)    如果有可能，请获取 AED 。</p>
+                    <p>2)    重复连续循环 30 个胸部按压和 2 个通气。</p>
+                    <p>3)    请使用 AED ( 如果可用 ) 并遵循其指示信息。</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/firefighters-extinguishing-flame-through-window_74855-4791.jpg" alt="">
+                      火:
+                    </h6>
+                    <p>1)    通过呐喊，警示别人。</p>
+                    <p>2)    立即撤离该地区</p>
+                    <p>3)    只有在你能够并且不危及自己和他人的情况下，才会打火。 使用灭火器或软管卷轴。</p>
+                    `
+                    
+                  } else if (language=="Traditional Chinese") {
+                    xlang.innerHTML = `
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/insurance-agent-resolving-car-accident_53876-43055.jpg" alt="">
+                      汽車事故:
+                    </h6>
+                    <p>1)    可能的話，關掉汽車點火。 </p>
+                    <p>2)    透過放置車輛危害燈警示他人，並使用警告三角形（如果有的話）。</p>
+                    <p>3)    讓傷亡人數保持溫暖和平靜，並幫助他們接觸親屬的親屬。</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.flaticon.com/icons/png/512/90/90594.png" alt="">
+                      Cardiac 被捕:
+                    </h6>
+                    <p>1)    可能的話，請取得 AED 。</p>
+                    <p>2)    重複 30 次胸部按壓及 2 個透氣的連續循環。</p>
+                    <p>3)    請使用 AED （如果有的話），並遵循其指示。</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/firefighters-extinguishing-flame-through-window_74855-4791.jpg" alt="">
+                      開火:
+                    </h6>
+                    <p>1)    向其他人喊叫</p>
+                    <p>2)    請立即從樓梯上撤離</p>
+                    <p>3)    只有在能夠和不危及自己和他人的情況下，才能撲滅火勢。 使用滅火器或軟管捲盤。</p>
+                    `
+                  } else if (language=="Malay") {
+                    xlang.innerHTML = `
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/insurance-agent-resolving-car-accident_53876-43055.jpg" alt="">
+                      Kemalangan Kereta:
+                    </h6>
+                    <p>1)    Matikan alat pencucuh jika boleh. </p>
+                    <p>2)    Beri amaran kepada orang lain dengan memakai lampu senjata api dan gunakan peringatan segitiga jika ada yang ada.</p>
+                    <p>3)    Menjaga mangsa yang hangat dan tenang dan membantu mereka untuk menghubungi lain dari kerabat.</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.flaticon.com/icons/png/512/90/90594.png" alt="">
+                      Tangkap Jantung:
+                    </h6>
+                    <p>1)    Dapatkan AED jika boleh.</p>
+                    <p>2)    Ulang kitaran berterusan 30 buah dada dan 2 pengudaraan.</p>
+                    <p>3)    Guna AED jika tersedia dan ikut arahannya.</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/firefighters-extinguishing-flame-through-window_74855-4791.jpg" alt="">
+                      Api:
+                    </h6>
+                    <p>1)    Beri amaran kepada orang lain untuk api dengan menjerit.</p>
+                    <p>2)    Mengosongkan kawasan melalui keluar tangga dengan segera.</p>
+                    <p>3)    Lawan api hanya jika anda dapat dan tanpa membahayakan diri dan orang lain. Gunakan pemadam api atau 'hose reel'.</p>
+                    `
+                  } else if (language=="Malayalam") {
+                    xlang.innerHTML = `
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/insurance-agent-resolving-car-accident_53876-43055.jpg" alt="">
+                      കാർ അപകടം:
+                    </h6>
+                    <p>1)    സാധ്യമെങ്കില് കാര് ഇഗ്നിഷന് ഓഫ് ചെയ്യുക </p>
+                    <p>2)    മറ്റുള്ളവ വണ്ടി ഹേജാർഡ് ലൈറ്റുകൾ ഉപയോഗിച്ച് ഒരു മുന്നറിയിപ്പ് ഉപയോഗിച്ച് ഒരു മുന്നറിയിപ്പ് ഉപയോഗിക്കാറുണ്ട്.</p>
+                    <p>3)    മരണാനന്തരം ചൂടുപിടിച്ച്, സമാധാനപ്പെട്, ബന്ധുക്കളിന്റെ അടുത്ത് ബന്ധപ്പെടാന് അവരെ സഹായിക്കുക.</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.flaticon.com/icons/png/512/90/90594.png" alt="">
+                      കാർഡിയാക് അരെസ്റ്റ്:
+                    </h6>
+                    <p>1)    സാധ്യമെങ്കില് ഒരു ഐഡി എടുക്ക്.</p>
+                    <p>2)    30 നെഞ്ചിലെ കമ്പിളറുകളും 2 വെന്റിലേഷനുകളുടേയും തുടർച്ചയായ ചക്രങ്ങൾ പുതുക്കുന്നു.</p>
+                    <p>3)    ലഭ്യമെങ്കില് AED ഉപയോഗിക്കുക. അതിന്റെ നിര്ദ്ദേശങ്ങള് അനുസരിക്കുക.</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/firefighters-extinguishing-flame-through-window_74855-4791.jpg" alt="">
+                      ഫയല്:
+                    </h6>
+                    <p>1)    മറ്റുള്ളവരെ വിളിച്ച് വെടിവയ്ക്കുക.</p>
+                    <p>2)    പെട്ടെന്ന് പുറത്തേക്കുള്ള സ്ഥലം പുറത്തേക്ക്.</p>
+                    <p>3)    നീ സ്വയം സഹകരിക്കാതെ, മറ്റുള്ളവരെയും ഇല്ലാതാകുകയാണെങ്കില് മാത്രം അഗ്നിനെ ഫൈറ്റ് ചെയ്യുക. ഒരു ഫയർ അണക്കെട്ടോ അല്ലെങ്കിൽ ഹോസ് റീൽ ഉപയോഗിക്കുക.</p>
+                    `
+                  } else if (language=="Tamil") {
+                    xlang.innerHTML = `
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/insurance-agent-resolving-car-accident_53876-43055.jpg" alt="">
+                      கார் ஏற்றுமதி:
+                    </h6>
+                    <p>1)    சாத்தியமானால் கார் விசையை திரும்பவும். </p>
+                    <p>2)    ஏறக்குறைய வாகனம் சார்ந்த விளைவுகளைப் பயன்படுத்தி ஒன்று கிடைக்கும் என்றால் எச்சரிக்கை முக்கோணத்தை பயன்படுத்தவும்.</p>
+                    <p>3)    வெப்பமடைதலையும் அமைதியாக வைத்துக் கொள்ளவும், அப்போதைய உறவினால் தொடர்பு கொள்ளுங்கள்.</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.flaticon.com/icons/png/512/90/90594.png" alt="">
+                      கார்டிகா:
+                    </h6>
+                    <p>1)    சாத்தியமானால் AED பெறவும்.</p>
+                    <p>2)    30 புத்தகங்களின் தொடர்ச்சி சுழிகள் மற்றும் 2 வெப்பமடைதலை மறுமலர்ச்சி செய்கிறது.</p>
+                    <p>3)    உபயோகிக்கப்பட்டால் AED (AED) பயன்படுத்தவும் அதன் ஆணைகளைப் பின்பற்றவும்.</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/firefighters-extinguishing-flame-through-window_74855-4791.jpg" alt="">
+                      தீ:
+                    </h6>
+                    <p>1)    மற்றவர்களை ஆரம்பித்தனர்.</p>
+                    <p>2)    உடனடியாக வெளியேற்றம் மூலம் பரப்பை வெளியேறு.</p>
+                    <p>3)   நீங ் கள ் உங ் களிடம ் மற ் றும ் மற ் றும ் மற ் றும ் மற ் றும ் நம ் பிக ் கையில ் லை. ஒரு தீ விரிவாக்கி அல்லது ஹோஸ் ரெல் பயன்படுத்து.</p>
+                    `
+                  } else {
+                    xlang.innerHTML = `
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/insurance-agent-resolving-car-accident_53876-43055.jpg" alt="">
+                      कार दुर्घटना:
+                    </h6>
+                    <p>1)    यदि संभव हो तो कार की ignitions बंद कर दें. </p>
+                    <p>2)    दूसरों को वाहन के हैज़र्ड रोशनी डाल कर सचेत करें और यदि कोई एक उपलब्ध हो तो चेतावनी के त्रिकोण का प्रयोग करें ।</p>
+                    <p>3)    हताहतों को गर्म और शांत रखें और उन्हें रिश्तेदार से संपर्क करने में मदद करें.</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.flaticon.com/icons/png/512/90/90594.png" alt="">
+                      हृद् रोध:
+                    </h6>
+                    <p>1)    यदि संभव हो तो एक एईडी प्राप्त करें.</p>
+                    <p>2)    30 सीने कम्प्रेशन्स और 2 डिवालिशन के लगातार चक्र को दोहराएं.</p>
+                    <p>3)    यदि उपलब्ध हो और इसके निर्देशों का पालन करें तो एईडी का उपयोग करें।</p>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      <img style="width:50%; height:50%" src="https://image.freepik.com/free-vector/firefighters-extinguishing-flame-through-window_74855-4791.jpg" alt="">
+                      अग्नि:
+                    </h6>
+                    <p>1)    दूसरों को चीख-चिल्लाकर आग में डाल दें ।</p>
+                    <p>2)    जल्दी से बाहर निकलने के माध्यम से क्षेत्र को बाहर निकालें।</p>
+                    <p>3)    आग से युद्ध करो केवल यदि आप अपने आप को और दूसरों के साथ आराम करने के लिए सक्षम हैं. आग बुझाने या नली रील का उपयोग करें.</p>
+                    `
+                  }
+                }
+              </script>
+
             </div>
           </div>
 
