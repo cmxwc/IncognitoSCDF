@@ -103,12 +103,12 @@
                     Language
                   </button>
                   <div class="dropdown-menu">
-                    <button class="dropdown-item" type="button" onclick="change_language('Simplified Chinese')">Simplified Chinese</button>
-                    <button class="dropdown-item" type="button" onclick="change_language('Traditional Chinese')">Traditional Chinese</button>
-                    <button class="dropdown-item" type="button" onclick="change_language('Malay')">Malay</button>
-                    <button class="dropdown-item" type="button" onclick="change_language('Malayalam')">Malayalam</button>
-                    <button class="dropdown-item" type="button" onclick="change_language('Tamil')">Tamil</button>
-                    <button class="dropdown-item" type="button" onclick="change_language('Hindi')">Hindi</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Simplified Chinese')">简体中文</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Traditional Chinese')">繁体中文</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Malay')">Melayu</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Malayalam')">മലയാളം</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Tamil')">தமிழ்</button>
+                    <button class="dropdown-item" type="button" onclick="change_language('Hindi')">हिन्दी</button>
                   </div>
                 </h6>
               </div>
@@ -350,6 +350,28 @@
                     `
                   }
                 }
+                var request = require('request');
+                var headers = {
+                    'Content-Type': 'application/json',
+                    'Accept': 'audio/wav'
+                };
+                var dataString = '{text:\'hello world\'}';
+                var options = {
+                    url: 'https://api.kr-seo.text-to-speech.watson.cloud.ibm.com/instances/8a227afe-56bd-4f94-9764-a440b9c94aed/v1/synthesize',
+                    method: 'POST',
+                    headers: headers,
+                    body: dataString,
+                    auth: {
+                        'user': 'apikey',
+                        'pass': 'gO9JFM33U7Ev4zKiDXVdpia6u_XrXvd11QqwFE'
+                    }
+                };
+                function callback(error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        console.log(body);
+                    }
+                }
+                request(options, callback);
               </script>
 
             </div>
